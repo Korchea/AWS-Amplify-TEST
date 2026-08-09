@@ -40,6 +40,30 @@ body {
 .logo { width: 110px; filter: drop-shadow(0 0 25px var(--purple)); animation: float 6s ease-in-out infinite; }
 @keyframes float { 50% { transform: translateY(-15px); } }
 
+/* Órbita del hero: planeta + satélite y cometa girando */
+.hero-orbit {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+.orbit-icon {
+  position: absolute;
+  width: 52px;
+  top: 50%;
+  left: 50%;
+  margin: -26px 0 0 -26px;
+  filter: drop-shadow(0 0 12px var(--cyan));
+}
+.orbit-a { animation: orbit 14s linear infinite; }
+.orbit-b { width: 46px; animation: orbit 22s linear infinite reverse; }
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(115px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(115px) rotate(-360deg); }
+}
+
 .badge {
   display: inline-block;
   margin: 20px 0;
@@ -89,6 +113,75 @@ h1 span { color: var(--purple); text-shadow: 0 0 30px var(--purple); }
 .card img { width: 64px; margin-bottom: 16px; }
 .card h2 { margin-bottom: 10px; color: var(--cyan); }
 .card p { color: #99a; line-height: 1.5; }
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 3px;
+  margin: 14px auto 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--purple), var(--cyan));
+}
+
+/* Banner de nebulosa */
+.banner {
+  position: relative;
+  max-width: 1000px;
+  margin: 30px auto;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(56, 225, 255, .3);
+  box-shadow: 0 0 50px rgba(123, 92, 255, .25);
+}
+.banner img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+.banner-text {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 26px 30px;
+  background: linear-gradient(transparent, rgba(5, 6, 15, .85));
+}
+.banner-text h2 { color: var(--cyan); margin-bottom: 6px; }
+.banner-text p { color: #ccd; }
+
+/* Galería */
+.gallery {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px 10px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+.gallery figure {
+  background: rgba(56, 225, 255, .06);
+  border: 1px solid rgba(56, 225, 255, .25);
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.gallery figure:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--purple);
+  box-shadow: 0 0 35px rgba(123, 92, 255, .3);
+}
+.gallery img { width: 92px; filter: drop-shadow(0 0 14px rgba(56, 225, 255, .5)); }
+.gallery figcaption { margin-top: 12px; color: #aab; font-size: .9rem; letter-spacing: .5px; }
 
 .stats {
   display: flex;
